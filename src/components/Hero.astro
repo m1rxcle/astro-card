@@ -1,0 +1,39 @@
+<section id="main" class=" relative min-h-screen">
+    <div class=" flex justify-between items-start">
+        <div id="main-blocks" class="flex flex-col justify-between h-full gap-24 container pointer-events-none select-none">
+        <div class="leading-12">
+            <h2 class="text-secondary font-bold">Новая кредитная карта</h2>
+            <h1 class="text-accent text-[64px] font-black" >Astro Card</h1>
+        </div>
+        <p class="text-primary flex flex-col font-bold">
+            <span>Без скрытых комиссий</span>
+            <span>Бесплатное обслуживание</span>
+           <span>Мгновенное оформление</span>
+        </p>
+        <p class="text-[#D1D5DB] font-semibold">
+            До 120 дней без процентов 
+            <br/> 
+            <span>Кешбек до 10%</span>
+        </p>
+        </div>
+    </div>
+    <div class="bg-linear-to-b from-[#0F0F10] via-[#FF1A1A]/10 to-[#0F0F10]/2 w-full absolute -top-50 h-full -z-10"></div>
+</section>
+
+<script>
+    import {gsap} from 'gsap'
+    import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const blocks = gsap.utils.toArray('#main-blocks > *')
+
+    gsap.from(blocks, {
+       
+        x: -200,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+    })
+
+</script>

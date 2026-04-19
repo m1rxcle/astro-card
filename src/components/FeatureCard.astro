@@ -1,0 +1,14 @@
+---
+ const {title, description, icon} = Astro.props
+---
+
+<div class="relative overflow-hidden text-white rounded-2xl max-w-52 bg-secondary/20 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.25)]  items-center gap-2 px-1.5 py-10 font-bold">
+   
+    <div class="absolute inset-0 bg-linear-to-br from-white/20 via-transparent to-transparent pointer-events-none"></div>
+   
+    <div class="flex items-center justify-center gap-2">
+        <img src={icon} />        
+        <h1>{title}</h1>
+    </div>
+    <p class="flex justify-center h-full  items-center text-sm text-secondary text-center">{description}</p>
+</div>

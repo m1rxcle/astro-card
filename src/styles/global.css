@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-primary: #ffffff;
+	--color-secondary: #a1a1aa;
+	--color-accent: #ff0909;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: "BioRhyme", sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+}
+
+.container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 20px;
+}
+
+#preloader {
+	position: fixed;
+	inset: 0;
+	background: #0f0f10;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	transition: opacity 0.6s ease;
+}
+
+#preloader.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.loader {
+	animation: flip 1s linear infinite;
+}
+
+@keyframes flip {
+	0% {
+		transform: rotateY(0deg);
+	}
+	50% {
+		transform: rotateY(180deg) translateY(-10px);
+	}
+	100% {
+		transform: rotateY(360deg) translateY(0px);
+	}
+}
+
+footer h1 {
+	font-family: "Genos", sans-serif;
+}

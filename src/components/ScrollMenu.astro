@@ -1,0 +1,33 @@
+<aside class="hidden md:block md:fixed md:top-1/2 md:left-10 md:p-2 md:rounded-full md:z-40 md:bg-secondary/20 md:backdrop-blur-xl md:border md:border-white/20 md:shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+   <div id="scroll-menu-container" class="flex flex-col items-center justify-center gap-2 ">
+     <a href="#main"  class="bg-secondary h-2 w-2 rounded-full cursor-pointer scroll-menu-item  hover:bg-white"></a>
+     <a href="#features" class="bg-secondary h-2 w-2 rounded-full cursor-pointer scroll-menu-item  hover:bg-white"></a>
+     <a href="#order" class="bg-secondary h-2 w-2 rounded-full cursor-pointer scroll-menu-item  hover:bg-white"></a>
+     <a href="#contacts" class="bg-secondary h-2 w-2 rounded-full cursor-pointer scroll-menu-item  hover:bg-white"></a>
+   </div>
+</aside>
+
+<script>
+import '../styles/scrollMenu.css' 
+
+const scrollMenuItems = document.querySelectorAll('.scroll-menu-item')
+const sections = document.querySelectorAll("section[id]");
+
+const setActiveScrollMenu = (id:string) => {
+    scrollMenuItems.forEach((item) => {
+        item.classList.toggle('active', item.getAttribute('href') === `#${id}`)
+    })
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        const id = entry.target.id
+        setActiveScrollMenu(id)
+        history.replaceState(null, "", `#${id}`)
+    })
+}, {threshold: 0.5})
+
+sections.forEach((section) => observer.observe(section))
+
+</script>

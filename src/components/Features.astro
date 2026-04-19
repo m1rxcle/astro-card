@@ -1,0 +1,48 @@
+---
+import FeatureCard from './FeatureCard.astro'
+import { FEATURES } from '../utils/data'
+---
+
+<section id="features" class="container features min-h-screen relative ">
+    <div class="mb-10">
+        <h1 class="text-secondary text-lg font-bold mb-2">Что нового ?</h1>
+    <p class="text-white text-lg font-semibold">Кроме красивого дизайна завезли вот такой функционал</p>
+    </div>
+    <div  class="flex justify-between">
+        <div id="card-container" class="grid grid-cols-2  gap-x-2 gap-y-4 ml-10">
+        
+        {
+            FEATURES.map((feature) => (
+                <FeatureCard title={feature.title} icon={feature.icon} description={feature.description}/>
+            ))
+        }
+    </div>
+    </div>
+</section>
+
+<script >
+    import {gsap} from 'gsap'
+    import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const cards = gsap.utils.toArray('#card-container > *')
+
+    gsap.from(cards, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        stagger: {
+            each: 0.15,
+
+        },
+
+        scrollTrigger: {
+            trigger: '#card-container',
+            start: 'top 60%',
+            toggleActions: "play none none none"
+        }
+    })
+
+</script>

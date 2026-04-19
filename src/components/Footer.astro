@@ -1,0 +1,81 @@
+<footer class="bg-primary h-125 rounded-t-4xl z-50 relative">
+    <section id="contacts" class="container space-y-8" >
+        <div>
+            <h1 id="footer-logo" class="text-[128px] font-bold text-accent text-center leading-30">Astro Card</h1>
+            <div class="w-full h-0.5 bg-accent text-accent rounded-2xl" />
+        </div>
+        <div class="grid grid-cols-3 justify-items-center ">
+            <div  class="flex flex-col items-start gap-2 footer-menu-item">
+                <div>
+                    <p class="font-bold">999</p>
+                    <span class="text-secondary">Бесплатно с мобильного</span>
+                </div>
+                <div>
+                    <p class="font-bold">8(999)999-99-99</p>
+                    <span class="text-secondary">Бесплатный звонок по всей России</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-start gap-2 footer-menu-item">
+                    <p class="font-bold">Отделение и банкоматы</p>
+                    <p class="font-bold">Запись в отделение</p>
+                    <p class="font-bold">Курсы валют</p>
+                    <p class="font-bold">Контакты</p>
+            </div>
+            <div class="flex flex-col items-start gap-2 footer-menu-item">
+                    <p class="font-bold">Акции и скидки</p>
+                    <p class="font-bold">Реквезиты</p>
+                    <p class="font-bold">Вклады</p>
+                    <p class="font-bold">О банке</p>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-4">
+            <img src="/icons/footer-logo.svg" alt="footer-logo" class="hover:fill-accent" />
+            <div class="flex flex-col items-center">
+                <span class="text-secondary text-xs w-75 text-center">Сайт является пет-проектом и не предназначен для комерческого использования</span>
+                <span class="text-black">
+                    © 2026 
+                    <a href="https://github.com/m1rxcle" class="hover:text-accent transition-colors duration-300 ease-in-out">miracle.dev</a>
+                </span>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<script>
+    import {gsap} from 'gsap'
+    import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const footerLogo = document.getElementById('footer-logo')
+    const footerMenuItem = document.querySelectorAll('.footer-menu-item')
+
+    console.log("Logo", footerLogo)
+
+    gsap.from(footerLogo, {
+        y:20,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: footerLogo,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+        }
+    })
+
+    gsap.from(footerMenuItem, {
+        y:20,
+        opacity: 0,
+        duration: 1,
+        ease: 'power2.out',
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: footerMenuItem,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+        }
+    })
+
+
+</script>

@@ -1,0 +1,41 @@
+ <button id="cta" class="border-2 border-primary/50  bg-accent py-2 px-6 rounded-2xl text-white fixed z-50 bottom-24 right-1/2 translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+    <a href="#order" class="text-xl font-bold">Получить карту</a>
+ </button>
+        
+<script>
+    import {gsap} from 'gsap'
+    import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const orderSection = document.getElementById('order')
+    const cta = document.getElementById('cta')
+
+    const hideCta = () => {
+        gsap.to(cta, {
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+        })
+    }
+    
+    const showCta = () => {
+        gsap.to(cta, {
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power2.out'
+        })
+    }
+
+    ScrollTrigger.create({
+        trigger: orderSection,
+        start: 'top 70%',
+        end: 'bottom 30%',
+        onEnter: () => hideCta(),
+        onEnterBack: () => hideCta(),
+        onLeave: () => showCta(),
+        onLeaveBack: () => showCta(),
+    })
+
+
+</script>

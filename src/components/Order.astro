@@ -1,0 +1,54 @@
+---
+import Image from 'astro/components/Image.astro'
+---
+
+<section id="order" class="min-h-screen container h-full flex justify-center items-center relative">
+    <div class="flex items-center gap-[135px]">
+        <h1 id="orderTitle" class="text-primary text-4xl font-bold">Хотите заказать карту?<br/>Просто оставьте вашу почту и мы с вами свяжемся</h1>
+        <div id="orderForm" class="flex flex-col items-start gap-2">
+                <form class="flex gap-2  w-full">
+                    <input type="email" placeholder="Ваша почта" class="border border-white  p-2 px-4 outline-none focus:outline-none rounded-lg placeholder:text-secondary text-white w-full bg-white/10 ring-0 focus-within:ring-0 focus:ring-0" />
+                    <button type="submit" class="bg-accent py-2 px-4 rounded-md text-primary font-semibold">Оформить</button>
+                </form>
+            <p class="text-white text-sm font-normal">Отправляя вашу почту вы соглашаетесь с обработкой ваших персональных данных</p>
+        </div>
+    </div>
+    <Image width='1000' height='1000' src="/bg-logo.png" class="absolute top-0  -z-10" alt="bg-logo" />
+</section>
+
+<script>
+    import {gsap} from 'gsap'
+    import {ScrollTrigger} from 'gsap/ScrollTrigger'
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    const orderTitle = document.getElementById('orderTitle')
+    const orderForm = document.getElementById('orderForm')
+
+    gsap.from(orderTitle, {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        ease: 'power2.out',
+
+        scrollTrigger: {
+            trigger: orderTitle,
+            start: 'top 60%',
+            toggleActions: 'play none none none'
+        }
+    })
+
+    gsap.from(orderForm, {
+        opacity: 0,
+        x: 100,
+        duration: 1,
+        ease: 'power2.out',
+
+         scrollTrigger: {
+            trigger: orderForm,
+            start: 'top 60%',
+            toggleActions: 'play none none none'
+        }
+    })
+
+</script>
