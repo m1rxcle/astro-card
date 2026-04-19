@@ -9,6 +9,9 @@ export default defineConfig({
 	output: "static",
 	vite: {
 		plugins: [tailwindcss()],
+		ssr: {
+			noExternal: ["@react-three/fiber", "@react-three/drei", "gsap"],
+		},
 	},
 	integrations: [react()],
 })

@@ -21,7 +21,7 @@ import Footer from '../components/Footer.astro'
 			<ScrollMenu />
 			<main id="card-scroll-area" class="relative">
 				<Hero />
-				<Scene className='scene' client:load />
+				<Scene className='scene' client:only="react" />
 				<CallToActionButton />
 				<Features />
 				<Order />
