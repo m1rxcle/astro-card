@@ -10,7 +10,7 @@ export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
 		ssr: {
-			noExternal: ["react", "react-dom", "react/jsx-runtime", "three", "@react-three/fiber", "@react-three/drei", "gsap"],
+			noExternal: ["three", "@react-three/fiber", "@react-three/drei", "gsap"],
 		},
 		optimizeDeps: {
 			include: ["react", "react-dom"],
