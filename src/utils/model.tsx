@@ -3,7 +3,7 @@ import { useGLTF, useTexture } from "@react-three/drei"
 import { gsap } from "gsap"
 
 const Model = forwardRef(function Model({ onReady, isInteractive, ...props }: { onReady?: () => void; props?: any; isInteractive?: any }, ref: any) {
-	useGLTF(`${import.meta.env.BASE_URL}models/credit-card.glb`)
+	useGLTF(`/astro-card/models/credit-card.glb`)
 	const frontTexture = useTexture(`/astro-card/textures/front-card.png`)
 	const backTexture = useTexture(`/astro-card/textures/back-card.png`)
 
