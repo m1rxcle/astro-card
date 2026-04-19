@@ -3,9 +3,9 @@ import { useGLTF, useTexture } from "@react-three/drei"
 import { gsap } from "gsap"
 
 const Model = forwardRef(function Model({ onReady, isInteractive, ...props }: { onReady?: () => void; props?: any; isInteractive?: any }, ref: any) {
-	useGLTF("/models/credit-card.glb")
-	const frontTexture = useTexture("/textures/front-card.png")
-	const backTexture = useTexture("/textures/back-card.png")
+	useGLTF(`${import.meta.env.BASE_URL}models/credit-card.glb`)
+	const frontTexture = useTexture(`${import.meta.env.BASE_URL}textures/front-card.png`)
+	const backTexture = useTexture(`${import.meta.env.BASE_URL}textures/back-card.png`)
 
 	useEffect(() => {
 		if (onReady) onReady()
@@ -59,6 +59,6 @@ const Model = forwardRef(function Model({ onReady, isInteractive, ...props }: { 
 	)
 })
 
-useGLTF.preload("/models/credit-card.glb")
+useGLTF.preload(`${import.meta.env.BASE_URL}models/credit-card.glb`)
 
 export default Model
