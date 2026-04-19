@@ -4,8 +4,8 @@ import { gsap } from "gsap"
 
 const Model = forwardRef(function Model({ onReady, isInteractive, ...props }: { onReady?: () => void; props?: any; isInteractive?: any }, ref: any) {
 	useGLTF(`${import.meta.env.BASE_URL}models/credit-card.glb`)
-	const frontTexture = useTexture(`${import.meta.env.BASE_URL}textures/front-card.png`)
-	const backTexture = useTexture(`${import.meta.env.BASE_URL}textures/back-card.png`)
+	const frontTexture = useTexture(`/astro-card/textures/front-card.png`)
+	const backTexture = useTexture(`/astro-card/textures/back-card.png`)
 
 	useEffect(() => {
 		if (onReady) onReady()
@@ -59,6 +59,6 @@ const Model = forwardRef(function Model({ onReady, isInteractive, ...props }: { 
 	)
 })
 
-useGLTF.preload(`${import.meta.env.BASE_URL}models/credit-card.glb`)
+useGLTF.preload(`/astro-card/models/credit-card.glb`)
 
 export default Model
