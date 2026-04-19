@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Canvas } from "@react-three/fiber"
 import Model from "../utils/model"
 import { Environment, OrbitControls } from "@react-three/drei"
@@ -5,7 +6,6 @@ import { Suspense, useEffect, useRef } from "react"
 import type { Group } from "three"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import React from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
