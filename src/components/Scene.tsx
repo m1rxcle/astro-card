@@ -5,10 +5,11 @@ import { Suspense, useEffect, useRef } from "react"
 import type { Group } from "three"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import React from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Scene({ className }: { className?: string }) {
+export default function Scene() {
 	const cardRef = useRef<Group>(null)
 	const isInteractive = useRef<boolean>(true)
 
