@@ -1,46 +1,93 @@
-# Astro Starter Kit: Basics
+# 🚀 Astro Card
 
-```sh
-bun create astro@latest -- --template basics
-```
+Современный финтех-лендинг с интерактивной картой, 3D интерфейсом и функциями геолокации.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## ✨ Превью
 
-Inside of your Astro project, you'll see the following folders and files:
+![preview](./public/bg-logo.png)
+
+---
+
+## 🧠 Возможности
+
+- 🗺 Интерактивная карта (MapLibre + OpenStreetMap)
+- 📍 Определение геолокации пользователя
+- 🏦 Поиск банков поблизости (Overpass API)
+- 🎨 Современный UI (Tailwind)
+- ⚡ Быстрая статическая сборка (Astro)
+- 🧊 3D элементы (Three.js)
+
+---
+
+## 📦 Структура проекта
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+
+dist/
+node_modules/
+public/
+src/
+├── assets/
+│   ├── astro.svg
+│   ├── background.svg
+├── components/
+│   ├── CallToAction.astro
+│   ├── FeatureCard.astro
+│   ├── Features.astro
+│   ├── FindUs.astro
+│   ├── Footer.astro
+│   ├── Header.astro
+│   ├── Hero.astro
+│   ├── Loader.astro
+│   ├── Order.astro
+│   ├── Scene.tsx
+│   ├── ScrollMenu.astro
+├── layouts/
+│   ├── Layout.astro
+├── pages/
+│   ├── index.astro
+├── styles/
+│   ├── global.css
+│   ├── header.css
+│   ├── scrollMenu.css
+├── utils/
+│   ├── data.ts
+│   ├── get-banks.ts
+│   ├── model.tsx
+
+.gitignore
+astro.config.mjs
+bun.lock
+package.json
+README.md
+tsconfig.json
+
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🖥 Технологии
 
-All commands are run from the root of the project, from a terminal:
+- Astro
+- Tailwind CSS
+- MapLibre GL JS
+- OpenStreetMap API
+- React (islands архитектура)
+- GSAP / Three.js
 
-| Command               | Action                                           |
-| :-------------------- | :----------------------------------------------- |
-| `bun install`         | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## 📍 Функция карты
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Определяет местоположение пользователя и отображает ближайшие банки в реальном времени.
+
+---
+
+## 🚀 Запуск проекта
+
+```bash
+npm install
+npm run dev
+```
