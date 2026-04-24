@@ -1,3 +1,46 @@
-<section class="min-h-screen"> 
-    
+---
+    import "maplibre-gl/dist/maplibre-gl.css"
+---
+
+<section class="min-h-screen container space-y-4"> 
+    <div>
+        <h1 class="text-primary text-lg font-bold mb-2">Где найти наши офисы ?  </h1>
+        <p class="text-secondary text-lg font-semibold">Наши офисы расположены в различных городах по всему миру. Вы можете найти нас в следующих местах:</p>
+    </div>
+    <div id="map" class="h-150 rounded-xl"></div>
 </section>
+
+<script>
+    import maplibregl from 'maplibre-gl';
+    import {getBanks} from '../utils/get-banks';
+
+     const map = new maplibregl.Map({
+            container: 'map',
+            style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+            center: [0, 0],
+            zoom: 2
+        })
+
+    navigator.geolocation.getCurrentPosition(async(position) => {
+        const {latitude, longitude} =  position.coords
+       
+        map.setCenter([longitude, latitude])
+        map.setZoom(12)
+
+        new maplibregl.Marker({color: 'red'}).setLngLat([longitude, latitude]).addTo(map)
+
+        const data = await getBanks(latitude, longitude)
+
+        data.elements.forEach((bank: any) => {
+            const el = document.createElement('div')
+            el.className = "w-6 h-6 rounded-full bg-red-500 border-2 border-white"  
+
+            new maplibregl.Marker({element: el})
+            .setLngLat([bank.lon, bank.lat])
+            .addTo(map)
+        })
+
+
+    })
+
+</script>
