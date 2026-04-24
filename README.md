@@ -6,7 +6,7 @@
 
 ## ✨ Превью
 
-![preview](./public/bg-logo.png)
+<img src="./public/bg-logo.png" width="300" height="300 />
 
 ---
 
