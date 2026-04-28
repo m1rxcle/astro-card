@@ -19,7 +19,7 @@ import Footer from '../components/Footer.astro'
 		<Loader />
 		<Header />
 			<ScrollMenu />
-			<main id="card-scroll-area" class="relative">
+			<main id="card-scroll-area" class="relative overflow-x-hidden md:overflow-x-visible">
 				<Hero />
 				<Scene client:only="react" />
 				<CallToActionButton />

@@ -12,8 +12,11 @@ gsap.registerPlugin(ScrollTrigger)
 export default function Scene() {
 	const cardRef = useRef<Group>(null)
 	const isInteractive = useRef<boolean>(true)
+	const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768)
 
 	useEffect(() => {
+		if (isMobile) return
+
 		let ctx: gsap.Context | null = null
 		let rafId = 0
 		let disposed = false
@@ -97,7 +100,10 @@ export default function Scene() {
 	}, [])
 
 	return (
-		<div id="card-stage" className="absolute right-[0px] top-[-200px] w-[1000px] h-[800px] pointer-events-none z-30">
+		<div
+			id="card-stage"
+			className="absolute right-0 top-30 w-105 h-90 lg:right-[0px] lg:top-[-200px] lg:w-[1000px] lg:h-[800px] pointer-events-none z-30 "
+		>
 			<Canvas className="relative" camera={{ position: [0, 0, 3], fov: 35 }}>
 				<directionalLight position={[0, -5, 25]} intensity={0.1} />
 				<Environment preset="warehouse" />
